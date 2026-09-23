@@ -1,4 +1,4 @@
-# STM32_D08_ADC_LCD
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/44478dce-4db8-4d60-aa5d-91a7dd71c6fa" /># STM32_D08_ADC_LCD
 
 Đồ án Đề tài D08: Thu thập dữ liệu ADC đa kênh hiển thị LCD (STM32F103C8T6)
 
@@ -15,3 +15,35 @@
 - ADC1 : Biến trở 10K
 - ADC2 : LDR
 - ADC3 : LM35
+👥 Phân công nhiệm vụ chi tiết
+SV1 - Module ADC & Cảm biến: : Trần Tuấn Đạt
+
+Cấu hình ADC đa kênh kết hợp DMA quét tự động.
+
+Viết hàm khởi tạo, đọc giá trị thô và chuyển đổi sang điện áp/thông số cảm biến.
+
+Đẩy code lên nhánh: feature/adc-sensor
+
+SV2 - Module LCD I2C: Trần Đình Khôi
+
+Viết thư viện giao tiếp LCD 1602 qua module I2C (PCF8574).
+
+Viết các hàm hiển thị chuỗi, số nguyên, số thực và định dạng giao diện hiển thị.
+
+Đẩy code lên nhánh: feature/lcd-i2c
+
+SV3 - Module Timer & Định thời: Nguyễn Anh Dũng
+
+Cấu hình Timer (TIM2) tạo ngắt định kỳ lấy mẫu dữ liệu.
+
+Viết các hàm tạo độ trễ (delay) chính xác và tạo nhịp quét hiển thị.
+
+Đẩy code lên nhánh: feature/timer-delay
+
+SV4 (Nguyễn Xuân Tài - Leader) - Trưởng nhóm & Tích hợp:
+
+Khởi tạo cấu trúc dự án mẫu từ STM32CubeMX, thiết lập Repository và phân nhánh Git.
+
+Review code và duyệt Pull Request (PR) từ các thành viên.
+
+Tích hợp các module vào main.c, kiểm thử trên phần cứng thực tế và hoàn thiện báo cáo.
