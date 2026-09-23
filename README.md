@@ -1,4 +1,4 @@
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/44478dce-4db8-4d60-aa5d-91a7dd71c6fa" /># STM32_D08_ADC_LCD
+
 
 Đồ án Đề tài D08: Thu thập dữ liệu ADC đa kênh hiển thị LCD (STM32F103C8T6)
 
