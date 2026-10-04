@@ -1,0 +1,26 @@
+# Keil uVision build artifacts
+*.bak
+*.ddk
+*.edk
+*.lst
+*.lnp
+*.mpf
+*.mpj
+*.obj
+*.omf
+*.plg
+*.rpt
+*.tmp
+*.__i
+*.crf
+*.o
+*.d
+*.axf
+*.htm
+*.sfr
+*.dep
+*.build_log.htm
+*.map
+
+# Proteus backup
+*.pdsbak

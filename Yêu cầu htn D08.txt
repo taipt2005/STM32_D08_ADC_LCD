@@ -1,0 +1,23 @@
+THÔNG TIN ĐỀ TÀI D08
+Mã đề: D08   
+Mức độ: Dễ   
+Tên đề tài: Thu thập dữ liệu ADC đa kênh hiển thị LCD   
+Mô tả & Mục tiêu: Đọc 4 kênh analog (biến trở, LDR, cảm biến nhiệt nội, điện áp pin qua phân áp) ở chế độ scan, hiển thị tuần tự trên LCD, quy đổi ra đại lượng vật lý, gửi lên PC vẽ đồ thị.   Phần cứng chính: STM32, LCD1602/2004, biến trở, LDR, cầu phân áp, nút nhấn   
+Ngoại vi / Kiến thức STM32: ADC scan, kích ADC bằng Timer, DMA (cấu hình bằng CubeMX), lọc số, hiệu chỉnh bằng VREFINT   
+NHIỆM VỤ CỦA CÁC THÀNH VIÊN (SV1 - SV4)
+SV1 – Nhiệm vụ: Cấu hình ADC scan 4 kênh kích bằng Timer (tần số lấy mẫu cố định), đọc bằng DMA   
+SV2 – Nhiệm vụ: Xử lý: lọc trung bình, quy đổi V / °C / %; hiệu chỉnh bằng VREFINT   
+SV3 – Nhiệm vụ: LCD: tự cuộn qua các kênh mỗi 2 s hoặc chuyển bằng nút; màn hình tổng hợp   
+SV4 – Nhiệm vụ (kiêm tích hợp): UART gửi CSV; vẽ đồ thị bằng Serial Plotter/Python; đối chiếu với đồng hồ vạn năng; báo cáo   
+YÊU CẦU DEMO / TIÊU CHÍ ĐẠT : 4 kênh hiển thị đúng (sai lệch < 2 % so với đồng hồ vạn năng); tần số lấy mẫu đúng cấu hình; có đồ thị trên PC
+Mở rộng : Cảnh báo ngưỡng từng kênh  
+ 
+QUY ĐỊNH CHUNG				
+1. Mỗi đề tài dành cho 1 nhóm 4 SV; có thể giao cùng một đề cho 2 nhóm ở 2 lớp khác nhau.				
+2. Nền tảng: STM32 (F103C8T6/Blue Pill hoặc Nucleo F4), STM32CubeIDE + HAL. Riêng đề Khó được yêu cầu viết mức thanh ghi ở phần ghi rõ trong đề.				
+3. Mỗi SV sở hữu ít nhất 1 module riêng (cặp file .c/.h có API rõ ràng). SV4 kiêm tích hợp, kiểm thử và biên tập báo cáo, nhưng mọi thành viên đều phải viết phần báo cáo về module của mình.				
+4. Tuần 1 nhóm phải chốt: sơ đồ khối, sơ đồ chân (pinout), file .h giao tiếp giữa các module → các SV làm song song, không chờ nhau.				
+5. Quản lý mã nguồn bằng Git (GitHub/GitLab); lịch sử commit là minh chứng đóng góp cá nhân.				
+6. Không dùng HAL_Delay trong vòng lặp chính (trừ khi đề cho phép); ưu tiên ngắt Timer / máy trạng thái.				
+7. Sản phẩm nộp: mã nguồn, báo cáo (sơ đồ khối, sơ đồ nguyên lý, lưu đồ/FSM, kết quả đo), video demo 3–5 phút.				
+8. Điểm cộng khi làm phần "Mở rộng" nhưng không vượt điểm tối đa của mức đề.
