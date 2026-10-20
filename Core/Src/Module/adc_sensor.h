@@ -17,6 +17,7 @@
 #include "stm32f1xx_hal.h"
 
 #define ADC_NUM_CH       5
+#define ADC_AVERAGE_FRAMES 10U
 #define ADC_IDX_POT      0
 #define ADC_IDX_LDR      1
 #define ADC_IDX_VBAT     2
@@ -35,5 +36,13 @@ void ADC_Sensor_GetRaw(uint16_t out[ADC_NUM_CH]);
 
 /** Tong so vong quet da lay tu luc Init*/
 uint32_t ADC_Sensor_GetSampleCount(void);
+
+/* Extension of SV1 module: stable mean of 10 complete scans.
+ * Order stays POT,LDR,VBAT,TEMP,VREF, exactly as on adc-dma.
+ * Returns 1 once per completed block, 0 when no new block is available.
+ * skipped counts averaged blocks overwritten before the main loop reads them. */
+uint8_t ADC_Sensor_GetAverage(float out[ADC_NUM_CH],
+                             uint32_t *frames, uint32_t *skipped);
+extern volatile uint32_t adc_sensor_errors;
 
 #endif /* ADC_SENSOR_H */
