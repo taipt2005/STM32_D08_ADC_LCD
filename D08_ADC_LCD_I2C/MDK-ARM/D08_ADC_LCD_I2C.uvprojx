@@ -515,6 +515,11 @@
           <GroupName>Thuvien</GroupName>
           <Files>
             <File>
+              <FileName>adc_sensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Core/Src/Module/adc_sensor.c</FilePath>
+            </File>
+            <File>
               <FileName>acquisition.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Core\Src\acquisition.c</FilePath>

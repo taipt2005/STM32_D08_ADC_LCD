@@ -82,11 +82,42 @@ static void render(void) {
 
     }
 
+    /* Alarm on the current channel; keep its measured value below. */
+    switch (page) {
+    case 0:
+        if (m.alarms & D08_ALARM_POT)
+            snprintf(a, sizeof a, "! BIEN TRO CAO");
+        break;
+    case 1:
+        if (m.alarms & D08_ALARM_LIGHT)
+            snprintf(a, sizeof a, "! ANH SANG THAP");
+        break;
+    case 2:
+        if (m.alarms & D08_ALARM_TEMP)
+            snprintf(a, sizeof a, "! NHIET DO CAO");
+        break;
+    case 3:
+        if (m.alarms & D08_ALARM_BAT)
+            snprintf(a, sizeof a, "! PIN YEU");
+        break;
+    default:
+        if (m.alarms) {
+            unsigned len = 0;
+            while (len < 15 && a[len] != '\0') ++len;
+            while (len < 15) a[len++] = ' ';
+            a[15] = '!';
+            a[16] = '\0';
+        }
+        break;
+    }
+
     if(lcd_rows(a,b)!=HAL_OK){++d08_lcd_errors;lcd_ok=0;}
 
 }
 
 void app_init(void) {
+
+    m.alarms = 0;
 
     button_init();telemetry_init(&huart1);
 

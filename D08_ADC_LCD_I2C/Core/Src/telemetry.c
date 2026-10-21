@@ -6,6 +6,7 @@ void telemetry_init(UART_HandleTypeDef *uart) {port=uart;}
 void telemetry_send(const Measurements *m,uint32_t now) {
     /* Do not modify buffer while interrupt-driven TX still owns it. */
     if(port->gState!=HAL_UART_STATE_READY)return;
+    /* raw0..4 order: POT,LDR,VBAT,TEMP,VREF (same as SV1). */
     int n=snprintf(buffer,sizeof buffer,
         "%lu,%lu,%lu,%ld,%ld,%ld,%ld,%ld,%u,%u,%u,%u,%u\r\n",
         (unsigned long)now,(unsigned long)m->frames,(unsigned long)m->skipped,

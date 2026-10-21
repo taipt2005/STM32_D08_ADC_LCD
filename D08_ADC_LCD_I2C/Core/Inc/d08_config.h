@@ -11,4 +11,15 @@
 #define D08_TEMP_OFFSET 0.0f
 #define D08_LDR_DARK 0.0f /* averaged raw ADC at dark calibration */
 #define D08_LDR_BRIGHT 4095.0f /* averaged raw ADC at bright calibration */
+/* Alarm thresholds: tune these values for the demo. */
+#define D08_POT_HIGH_V       3.0f
+#define D08_LIGHT_LOW_PCT   20.0f
+#define D08_TEMP_HIGH_C     30.0f
+#define D08_BAT_LOW_V       10.0f
+
+/* Hysteresis: clear only after the reading has recovered. */
+#define D08_POT_HYST_V       0.10f
+#define D08_LIGHT_HYST_PCT   5.0f
+#define D08_TEMP_HYST_C      2.0f
+#define D08_BAT_HYST_V       0.30f
 #endif
